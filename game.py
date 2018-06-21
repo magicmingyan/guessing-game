@@ -59,7 +59,7 @@ def guessing_game():
             # too_high = guess
             print('This number is too high. ')
 
-        elif guess <===== secret_num:
+        elif guess < secret_num:
            # too_low = guess
            print('This number is too low.')
 
