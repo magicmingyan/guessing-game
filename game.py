@@ -7,24 +7,39 @@ def play_game():
 
     random_number = random.randint(1, 101)
 
-    guess = int(input("Guess a number between 1 and 100 please"))
 
     num_guess = 1
 
+
     while True:
-        if guess != random_number:
+        try:
+            guess = int(input("Guess a number between 1 and 100 please "))
 
-            if guess > random_number:
-                print("Guess too high")
+            while True:
+                if guess > 100 or guess <1:
+                    print ("learn to read!!!")
+                    guess = int(input("Guess a correct number this time "))
 
-            else:
-                print("Guess too low")
 
-            guess = int(input("Guess again please "))
-            num_guess += 1
+                elif guess != random_number:
 
-        else:
-            print("Congrats! You guess correctly in {} tries".format(num_guess))
-            break
+                    if guess > random_number:
+                        print("Guess too high")
+
+                    elif guess < random_number:
+                        print("Guess too low")
+
+                    guess = int(input("Guess again please "))
+                    num_guess += 1
+
+                else:
+                    print("Congrats! You guess correctly in {} tries".format(num_guess))
+                    break
+
+
+        except ValueError:
+            print("Guess a number please ")
+
+
 
 play_game()
