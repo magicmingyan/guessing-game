@@ -1,32 +1,30 @@
-# Put your code here
 import random
 
-def guessing_game():
-    """Player guesses number between 1 nand 100"""
+def play_game():
+    print("Howdy, what's your name?")
 
-    player = input("What is your name? > ")
+    name = input(">")
 
-    print("Im going to think of a number between 1 and 100.")
-    print("Guess the number!")
+    random_number = random.randint(1, 101)
 
-    secret_num = random.randint(1,100)
-    # too_low=0
-    # too_high=101
-    guess = 102
+    guess = int(input("Guess a number between 1 and 100 please"))
 
-    while secret_num != guess:
-        guess = int(input("What number am I thinking of? > ".format(player)))
+    num_guess = 1
 
-        if guess > secret_num:
-            # too_high = guess
-            print('This number is too high. ')
+    while True:
+        if guess != random_number:
 
-        elif guess < secret_num:
-           # too_low = guess
-           print('This number is too low.')
+            if guess > random_number:
+                print("Guess too high")
+
+            else:
+                print("Guess too low")
+
+            guess = int(input("Guess again please "))
+            num_guess += 1
 
         else:
-            print("You guessed it right! Good Job!")
+            print("Congrats! You guess correctly in {} tries".format(num_guess))
+            break
 
-
-guessing_game()
+play_game()
